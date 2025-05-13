@@ -15,9 +15,11 @@ fn main() {
     let _item1 = _arr[0];
 
     let temp: u32 = 30;
-    if temp > 20 {
-        println!("It's hot outside")
+    if temperature <= 10 {
+        println!("The weather is cold");
+    } else if temperature <= 20 {
+        println!("The weather is cool");
     } else {
-        println!("It's cold outside")
+        println!("The weather is warm");
     }
 }
