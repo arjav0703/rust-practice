@@ -1,3 +1,5 @@
+use std::{thread::sleep, time::Duration};
+
 fn main() {
     println!("Hellow World!");
 
@@ -31,10 +33,11 @@ fn main() {
     let mut counter = 0;
     // Infinite loop
     loop {
-        println!("Connecting....");
-        counter += 1;
-        if counter >= 5 {
-            eprintln!("Connection failed after {} attempts", counter);
+        println!("Charging....{}%", counter);
+        counter += 10;
+        sleep(Duration::from_secs(1));
+        if counter >= 100 {
+            eprintln!("Battery reached {}%", counter);
             break;
         }
     }
