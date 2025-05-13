@@ -25,5 +25,17 @@ fn main() {
         "hot"
     };
 
-    println!("The weather is {}", weather)
+    println!("The weather is {}", weather);
+
+    // ==== LOOP ========
+    let mut counter = 0;
+    // Infinite loop
+    loop {
+        println!("Connecting....");
+        counter += 1;
+        if counter >= 5 {
+            eprintln!("Connection failed after {} attempts", counter);
+            break;
+        }
+    }
 }
