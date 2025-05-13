@@ -14,12 +14,16 @@ fn main() {
     let _arr = ["3", "1", "6", "223", "43", "2"];
     let _item1 = _arr[0];
 
+    // Control Flow
     let temp: u32 = 30;
-    if temp <= 10 {
-        println!("The weather is cold");
+
+    let weather = if temp <= 10 {
+        "cold"
     } else if temp <= 20 {
-        println!("The weather is cool");
+        "pleasing"
     } else {
-        println!("The weather is warm");
-    }
+        "hot"
+    };
+
+    println!("The weather is {}", weather)
 }
