@@ -45,7 +45,9 @@ fn _something() {
 
 // Func ===== the "->" represents the type the function will return
 fn add(a: i32, b: i32) -> i32 {
-    a + b //absense of semicolon means return
+    // a + b absense of semicolon means return
+    // OR
+    return a + b; // this is also valid
 }
 
 fn main() {
