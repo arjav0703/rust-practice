@@ -50,16 +50,25 @@ fn _add(a: i32, b: i32) -> i32 {
     return a + b; // this is also valid
 }
 
-fn ownership() {
+fn _ownership() {
     let str1 = String::from("Hellow! I am a cat 😸");
     let str2 = str1; // ownership of str1 is moved to str2
 
     println!("str2 is '{}'", str2);
     // println!("str1 is {}", str1); // this will throw an error
 }
+
+fn _reference() {
+    let mut _str1 = String::from("Hellow! I am a cat 😸");
+    let mut _str2 = &_str1[0..6]; // this is a slice
+    println!("{_str2}");
+    _str2 = "Hellow! world"; // this is a mutable slice
+
+    println!("str2 is '{}' while str1 is {}", _str2, _str1);
+}
+
 fn main() {
     // // let sum = add(2, 4);
     // println!("The sum is {}", add(2, 4));
-
-    ownership();
+    _reference();
 }
