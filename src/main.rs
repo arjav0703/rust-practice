@@ -1,6 +1,6 @@
 use std::{thread::sleep, time::Duration};
 
-fn main() {
+fn _something() {
     println!("Hellow World!");
 
     let _x: i32 = -50000000; // 32 bit one can't store much value
@@ -41,4 +41,14 @@ fn main() {
             break;
         }
     }
+}
+
+// Func ===== the "->" represents the type the function will return
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+fn main() {
+    // let sum = add(2, 4);
+    println!("The sum is {}", add(2, 4));
 }
