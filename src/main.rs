@@ -44,13 +44,22 @@ fn _something() {
 }
 
 // Func ===== the "->" represents the type the function will return
-fn add(a: i32, b: i32) -> i32 {
+fn _add(a: i32, b: i32) -> i32 {
     // a + b absense of semicolon means return
     // OR
     return a + b; // this is also valid
 }
 
+fn ownership() {
+    let str1 = String::from("Hellow! I am a cat 😸");
+    let str2 = str1; // ownership of str1 is moved to str2
+
+    println!("str2 is '{}'", str2);
+    // println!("str1 is {}", str1); // this will throw an error
+}
 fn main() {
-    // let sum = add(2, 4);
-    println!("The sum is {}", add(2, 4));
+    // // let sum = add(2, 4);
+    // println!("The sum is {}", add(2, 4));
+
+    ownership();
 }
