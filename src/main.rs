@@ -1,3 +1,4 @@
+use std::io;
 use std::{thread::sleep, time::Duration};
 
 fn _something() {
@@ -66,9 +67,17 @@ fn _reference() {
 
     println!("str2 is '{}' while str1 is {}", _str2, _str1);
 }
+fn _greet() {
+    let mut usrinput = String::new();
+    println!("Hey Rustacean 🦀, what's your name? ");
 
+    io::stdin()
+        .read_line(&mut usrinput)
+        .expect("Failed to read line");
+    println!("Hey {}", usrinput);
+}
 fn main() {
     // // let sum = add(2, 4);
     // println!("The sum is {}", add(2, 4));
-    _reference();
+    _greet();
 }
