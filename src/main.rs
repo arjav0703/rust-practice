@@ -10,6 +10,17 @@ struct Usr {
     sign_in_count: u64,
 }
 
+impl Usr {
+    fn _new(email: String, usrname: String, active: bool, sign_in_count: u64) -> Usr {
+        Usr {
+            active,
+            email,
+            usrname,
+            sign_in_count,
+        }
+    }
+}
+
 fn _something() {
     println!("Hellow World!");
 
@@ -178,23 +189,13 @@ fn _slice(s: &String) -> String {
     String::from(parts[0])
 }
 
-fn _create_user(isactive: bool, useremail: String, username: String, count: u64) -> Usr {
-    let user = Usr {
-        active: isactive,
-        email: useremail,
-        usrname: dbg!(username), // dbg!() is a macro that prints the value of the variable
-        sign_in_count: count,
-    };
-    println!("User created successfully");
-    user
-}
-
 fn main() {
-    let linus: Usr = _create_user(
-        true,
+    let linus: Usr = dbg!(Usr::_new(
+        // dbg!() is used to print the value for debugging
         String::from("linus@linux.org"),
         String::from("torvaldslinusthegreat"),
+        true,
         2,
-    );
+    ));
     println!("You can contact linus at {}", linus.email)
 }
