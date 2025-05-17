@@ -2,24 +2,24 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::{thread::sleep, time::Duration};
-#[derive(Debug)]
-struct Usr {
-    active: bool,
-    email: String,
-    usrname: String,
-    sign_in_count: u64,
-}
+// #[derive(Debug)]
+// struct Usr {
+//     active: bool,
+//     email: String,
+//     usrname: String,
+//     sign_in_count: u64,
+// }
 
-impl Usr {
-    fn _new(email: String, usrname: String, active: bool, sign_in_count: u64) -> Usr {
-        Usr {
-            active,
-            email,
-            usrname,
-            sign_in_count,
-        }
-    }
-}
+// impl Usr {
+//     fn _new(email: String, usrname: String, active: bool, sign_in_count: u64) -> Usr {
+//         Usr {
+//             active,
+//             email,
+//             usrname,
+//             sign_in_count,
+//         }
+//     }
+// }
 
 fn _something() {
     println!("Hellow World!");
@@ -189,13 +189,12 @@ fn _slice(s: &String) -> String {
     String::from(parts[0])
 }
 
+#[derive(Debug)]
+enum IpAddrKind {
+    V4(String),
+    V6(String),
+}
 fn main() {
-    let linus: Usr = dbg!(Usr::_new(
-        // dbg!() is used to print the value for debugging
-        String::from("linus@linux.org"),
-        String::from("torvaldslinusthegreat"),
-        true,
-        2,
-    ));
-    println!("You can contact linus at {}", linus.email)
+    let four = IpAddrKind::V4(String::from("hell"));
+    println!("{:?}", four);
 }
