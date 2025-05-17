@@ -167,7 +167,7 @@ fn _temp() {
 }
 
 fn _slice(s: &String) -> String {
-    let parts: Vec<&str> = s.split(' ').collect();
+    let parts: Vec<&str> = s.split(' ').collect(); // Vec<&str> tells .collect() what to return
     String::from(parts[0])
 }
 
