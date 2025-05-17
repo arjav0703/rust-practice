@@ -145,6 +145,14 @@ fn _arr() {
         println!("Please enter a number between 1 and 12");
     }
 }
+
+fn _loop() {
+    for num in (1..10).rev() {
+        println!("The number is {}", num);
+    }
+    println!("LIFTOFF")
+}
+
 fn main() {
-    _arr()
+    _loop()
 }
