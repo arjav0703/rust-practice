@@ -125,6 +125,26 @@ fn _vars() {
     }
     print!("X is {} \nY is {}", &x, &y);
 }
+
+fn _arr() {
+    let months: [&str; 12] = [
+        "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec",
+    ];
+    println!("Which Month Do you want to know about?");
+    let mut ind = String::new();
+
+    io::stdin()
+        .read_line(&mut ind)
+        .expect("Failed to read line");
+
+    let ind: i32 = ind.trim().parse().expect("Please enter a number!");
+
+    if ind > 0 && ind <= 12 {
+        println!("The month is {}", months[(ind - 1) as usize]);
+    } else {
+        println!("Please enter a number between 1 and 12");
+    }
+}
 fn main() {
-    _vars()
+    _arr()
 }
