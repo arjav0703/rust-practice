@@ -139,7 +139,7 @@ fn _arr() {
 
     let ind: i32 = ind.trim().parse().expect("Please enter a number!");
 
-    if ind > 0 && ind <= 12 {
+    if !(ind <= 0 || ind > 12) {
         println!("The month is {}", months[(ind - 1) as usize]);
     } else {
         println!("Please enter a number between 1 and 12");
