@@ -153,6 +153,19 @@ fn _loop() {
     println!("LIFTOFF")
 }
 
+fn _temp() {
+    let mut res = String::new();
+    println!("Please enter a temperature in Celsius: ");
+    io::stdin()
+        .read_line(&mut res)
+        .expect("Failed to read line");
+    let mut res: f32 = res.trim().parse().expect("Please enter a number!");
+
+    res = (res * 9.0 / 5.0) + 32.0;
+
+    println!("{}F", res)
+}
+
 fn main() {
-    _loop()
+    _temp();
 }
