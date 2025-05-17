@@ -113,8 +113,18 @@ fn _guess() {
         }
     }
 }
+
+fn _vars() {
+    let x = 20;
+    let y = &x + 10;
+
+    {
+        // Shadowing
+        let x = 50;
+        println!("[Inner Scope] X is {}", x)
+    }
+    print!("X is {} \nY is {}", &x, &y);
+}
 fn main() {
-    // // let sum = add(2, 4);
-    // println!("The sum is {}", add(2, 4));
-    _guess();
+    _vars()
 }
