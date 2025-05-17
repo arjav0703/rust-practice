@@ -191,10 +191,26 @@ fn _slice(s: &String) -> String {
 
 #[derive(Debug)]
 enum IpAddrKind {
-    V4(String),
-    V6(String),
+    V4,
+    V6,
+}
+
+struct IpAddr {
+    kind: IpAddrKind,
+    hostname: String
+    address: String,
 }
 fn main() {
-    let four = IpAddrKind::V4(String::from("hell"));
-    println!("{:?}", four);
+    let _loopback = IpAddr {
+        kind: IpAddrKind::V4,
+        hostname: String::from("localhost"),
+        address: String::from("127.0.0.1")
+    };
+    let _gateway = IpAddr {
+        kind: IpAddrKind::V4,
+        hostname: String::from("bbrouter"),
+        address: String::from("192.168.1.1")
+    };
+
+    println!("The Gateway's IP v4 is {} and it's hostname is {}", _gateway.address, _gateway.hostname)
 }
