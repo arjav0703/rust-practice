@@ -166,6 +166,11 @@ fn _temp() {
     println!("{}F", res)
 }
 
+fn _slice(s: &String) -> String {
+    let parts: Vec<&str> = s.split(' ').collect();
+    String::from(parts[0])
+}
+
 fn main() {
-    _temp();
+    println!("{}", (_slice(&String::from("Hellow world"))));
 }
