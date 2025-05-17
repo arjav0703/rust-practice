@@ -182,7 +182,7 @@ fn _create_user(isactive: bool, useremail: String, username: String, count: u64)
     let user = Usr {
         active: isactive,
         email: useremail,
-        usrname: username,
+        usrname: dbg!(username), // dbg!() is a macro that prints the value of the variable
         sign_in_count: count,
     };
     println!("User created successfully");
@@ -196,5 +196,5 @@ fn main() {
         String::from("torvaldslinusthegreat"),
         2,
     );
-    println!("{:?}", linus)
+    println!("You can contact linus at {}", linus.email)
 }
