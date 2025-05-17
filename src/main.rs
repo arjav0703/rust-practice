@@ -2,6 +2,13 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::{thread::sleep, time::Duration};
+#[derive(Debug)]
+struct Usr {
+    active: bool,
+    email: String,
+    usrname: String,
+    sign_in_count: u64,
+}
 
 fn _something() {
     println!("Hellow World!");
@@ -171,6 +178,23 @@ fn _slice(s: &String) -> String {
     String::from(parts[0])
 }
 
+fn _create_user(isactive: bool, useremail: String, username: String, count: u64) -> Usr {
+    let user = Usr {
+        active: isactive,
+        email: useremail,
+        usrname: username,
+        sign_in_count: count,
+    };
+    println!("User created successfully");
+    user
+}
+
 fn main() {
-    println!("{}", (_slice(&String::from("Hellow world"))));
+    let linus: Usr = _create_user(
+        true,
+        String::from("linus@linux.org"),
+        String::from("torvaldslinusthegreat"),
+        2,
+    );
+    println!("{:?}", linus)
 }
