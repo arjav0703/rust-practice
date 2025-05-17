@@ -82,7 +82,7 @@ fn _greet() {
 fn _guess() {
     println!("Guess the number!");
     loop {
-        let secret_number = rand::thread_rng().gen_range(1..=100);
+        let secret_number = rand::thread_rng().gen_range(1..=10);
 
         println!("The secret number is: {}", &secret_number);
 
@@ -93,7 +93,13 @@ fn _guess() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: i32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u8 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                eprintln!("Please enter a number!");
+                continue;
+            }
+        };
 
         println!("You guessed: {guess}");
 
