@@ -1,3 +1,8 @@
+// ALERT: This is not a Project
+// This File containes my journey of learing Rust as a Typescript and Python developer.
+// Things I like about Rust:
+// 1. It is Fast
+// 2. The compiler handles errors very well and even gives suggestions.
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -208,9 +213,9 @@ fn main() {
     };
 
     let _loopback = IpAddr {
-        kind: IpAddrKind::V4,
+        kind: IpAddrKind::V6,
         hostname: String::from("localhost"),
-        address: String::from("127.0.0.1"),
+        address: String::from("::1"),
     };
     let _gateway = IpAddr {
         kind: IpAddrKind::V4,
@@ -218,11 +223,11 @@ fn main() {
         address: String::from("192.168.1.1"),
     };
     println!(
-        "My workstation's IP address is {} and it's hostname is {}",
-        _localhost.address, _localhost.hostname
+        "My workstation's {:?} address is {} and it's hostname is {}",
+        _localhost.kind, _localhost.address, _localhost.hostname
     );
     println!(
         "The Gateway's IP v4 is {} and it's hostname is {}",
         _gateway.address, _gateway.hostname
-    )
+    );
 }
