@@ -7,7 +7,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::{thread::sleep, time::Duration};
-mod garden;
+// mod garden;
 // #[derive(Debug)]
 // struct Usr {
 //     active: bool,
@@ -218,6 +218,14 @@ fn _some() {
     println!("This will error out as we cant add i8 and Option<i8>");
 }
 
+fn _vectors() {
+    let mut vector1: Vec<i32> = Vec::new();
+    vector1.push(6);
+    vector1.push(9);
+
+    println!("Out vector is : {:?}", &vector1);
+}
+
 fn main() {
-    garden::main();
+    _vectors();
 }
