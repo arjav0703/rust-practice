@@ -219,5 +219,5 @@ fn _some() {
 }
 
 fn main() {
-    garden::garden::main();
+    garden::main();
 }
