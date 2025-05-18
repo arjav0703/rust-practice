@@ -240,12 +240,15 @@ fn _hashmap() {
     let mut scores = HashMap::new();
     scores.insert(String::from("blue"), 10);
     scores.insert(String::from("yellow"), 50);
+    scores.insert(String::from("red"), 20);
+    scores.insert(String::from("green"), 30);
     
     println!("Enter Team name to get scores");
     
     let mut key = String::new();
     io::stdin().read_line(&mut key).expect("Failed to read line");
     let key = key.trim().to_lowercase();
+    
     let res = match scores.get(&key) {
         Some(&score) => score,
         None => 0,
@@ -253,6 +256,7 @@ fn _hashmap() {
 
     println!("The score is {}", res);
 
+    scores.insert(String::from("blue"), 50);
 }
 
 fn main() {
