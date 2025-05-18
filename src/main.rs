@@ -259,6 +259,27 @@ fn _hashmap() {
     scores.insert(String::from("blue"), 50);
 }
 
+fn _challenge() {
+    let mut vec: Vec<i32> = vec![1, 2, 3, 4, 5, 2, 4, 1, 1, 6 , 1, 64, 2, 6, 1, 4];
+    // println!("The vector is {:?}", &vec);
+    vec.sort();
+    // println!("The sorted vector is {:?}", vec);
+    let med = _find_median(&mut vec);
+    println!("The median is {}", med);
+}
+
+fn _find_median(numbers: &mut Vec<i32>) -> f64 {
+    let len = numbers.len();
+    if len % 2 == 0 {
+        // If even, return the average of the two middle elements
+        let mid1 = numbers[len / 2 - 1];
+        let mid2 = numbers[len / 2];
+        (mid1 + mid2) as f64 / 2.0
+    } else {
+        // If odd, return the middle element
+        numbers[len / 2] as f64
+    }
+}
 fn main() {
-    _hashmap();
+    _challenge();
 }
