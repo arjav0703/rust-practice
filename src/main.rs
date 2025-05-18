@@ -223,7 +223,14 @@ fn _vectors() {
     vector1.push(6);
     vector1.push(9);
 
-    println!("Out vector is : {:?}", &vector1);
+    println!("Out vector is : {:?}", vector1);
+
+    let _third: Option<&i32> = vector1.get(2);
+    match _third {
+        Some(third) => println!("The third element is {}", third),
+        None => println!("There is no third element"),
+    }
+    //println!("The third element is {:?}", _third);
 }
 
 fn main() {
