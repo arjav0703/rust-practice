@@ -7,6 +7,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::{thread::sleep, time::Duration};
+use std::collections::HashMap;
 // mod garden;
 // #[derive(Debug)]
 // struct Usr {
@@ -233,6 +234,27 @@ fn _vectors() {
     //println!("The third element is {:?}", _third);
 }
 
+fn _hashmap() {
+    // HashMap is a key-value pair
+    // HashMap(key , value)
+    let mut scores = HashMap::new();
+    scores.insert(String::from("blue"), 10);
+    scores.insert(String::from("yellow"), 50);
+    
+    println!("Enter Team name to get scores");
+    
+    let mut key = String::new();
+    io::stdin().read_line(&mut key).expect("Failed to read line");
+    let key = key.trim().to_lowercase();
+    let res = match scores.get(&key) {
+        Some(&score) => score,
+        None => 0,
+    };
+
+    println!("The score is {}", res);
+
+}
+
 fn main() {
-    _vectors();
+    _hashmap();
 }
