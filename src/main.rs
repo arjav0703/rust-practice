@@ -4,6 +4,7 @@
 // 1. It is Fast
 // 2. The compiler handles errors very well and even gives suggestions.
 use rand::Rng;
+use core::panic;
 use std::cmp::Ordering;
 use std::io::ErrorKind;
 use std::{i32, io};
@@ -323,7 +324,7 @@ fn _err_handling(){
                         println!("File created successfully: {:?}", fc);
                     }
                     Err(err) => {
-                        println!("Error creating file: {}", err);
+                        panic!("Unable to create {:?} due to: {} ", filename, err )
                     }
                 }
                 return;
