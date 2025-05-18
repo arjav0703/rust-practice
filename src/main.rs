@@ -5,7 +5,7 @@
 // 2. The compiler handles errors very well and even gives suggestions.
 use rand::Rng;
 use std::cmp::Ordering;
-use std::io;
+use std::{i32, io};
 use std::{thread::sleep, time::Duration};
 use std::collections::HashMap;
 // mod garden;
@@ -268,7 +268,33 @@ fn _challenge() {
     println!("The median is {}", med);
 }
 
+fn _find_mode(numbers: &Vec<i32>)  {
+    let mut map = HashMap::new();
+
+    for num in numbers {
+        let counter = map.entry(num).or_insert(0);
+        *counter += 1;
+    }
+    println!("HashMap: {:?}", map);
+    
+    let mut max_k = None;
+    let mut max_v = i32::MIN;
+
+    for (&key, &value) in &map {
+        if value > max_v {
+            max_v = value;
+            max_k = Some(key);
+        }        
+    }
+    match max_k {
+        Some(k) => println!("The mode is {} with {} occurences", k, max_v),
+        None => println!("No mode found"),
+    }
+}
+
 fn _find_median(numbers: &mut Vec<i32>) -> f64 {
+    _find_mode(numbers);
+
     let len = numbers.len();
     if len % 2 == 0 {
         // If even, return the average of the two middle elements
@@ -279,6 +305,7 @@ fn _find_median(numbers: &mut Vec<i32>) -> f64 {
         // If odd, return the middle element
         numbers[len / 2] as f64
     }
+
 }
 fn main() {
     _challenge();
