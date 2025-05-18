@@ -194,40 +194,29 @@ fn _slice(s: &String) -> String {
     String::from(parts[0])
 }
 
-#[derive(Debug)]
-enum IpAddrKind {
-    V4,
-    V6,
+// #[derive(Debug)]
+// enum IpAddrKind {
+    // V4,
+    // V6,
+// }
+
+// struct IpAddr {
+    // kind: IpAddrKind,
+    // hostname: String,
+    // address: String,
+// }
+
+fn _some() {
+    // Rust does not have null. Instead it has Option<T> where T is the type of value
+    // let nullvalue: Option<i8> = None;
+
+    //let x: i8 = 5;
+    //let y: Option<i8> = Some(5);
+
+    //let sum = x + y;
+    println!("This will error out as we cant add i8 and Option<i8>");
 }
 
-struct IpAddr {
-    kind: IpAddrKind,
-    hostname: String,
-    address: String,
-}
 fn main() {
-    let _localhost = IpAddr {
-        kind: IpAddrKind::V4,
-        hostname: String::from("lonely-burrow"),
-        address: String::from("192.168.1.110"),
-    };
-
-    let _loopback = IpAddr {
-        kind: IpAddrKind::V6,
-        hostname: String::from("localhost"),
-        address: String::from("::1"),
-    };
-    let _gateway = IpAddr {
-        kind: IpAddrKind::V4,
-        hostname: String::from("bbrouter"),
-        address: String::from("192.168.1.1"),
-    };
-    println!(
-        "My workstation's {:?} address is {} and it's hostname is {}",
-        _localhost.kind, _localhost.address, _localhost.hostname
-    );
-    println!(
-        "The Gateway's IP v4 is {} and it's hostname is {}",
-        _gateway.address, _gateway.hostname
-    );
+    _some();
 }
