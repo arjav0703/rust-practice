@@ -8,6 +8,7 @@ use std::cmp::Ordering;
 use std::{i32, io};
 use std::{thread::sleep, time::Duration};
 use std::collections::HashMap;
+use std::fs::File;
 // mod garden;
 // #[derive(Debug)]
 // struct Usr {
@@ -307,6 +308,19 @@ fn _find_median(numbers: &mut Vec<i32>) -> f64 {
     }
 
 }
+
+fn _err_handling(){
+    let file = File::open("Cargo.toml");
+    let file = match file {
+        Ok(file) => file,
+        Err(err) => {
+            eprintln!("Error opening file: {}", err);
+            // panic!("File not found");
+            return;
+        }
+    };
+    println!("File opened successfully: {:?}", file);
+}
 fn main() {
-    _challenge();
+    _err_handling();
 }
