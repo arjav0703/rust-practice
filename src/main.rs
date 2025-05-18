@@ -5,6 +5,7 @@
 // 2. The compiler handles errors very well and even gives suggestions.
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io::ErrorKind;
 use std::{i32, io};
 use std::{thread::sleep, time::Duration};
 use std::collections::HashMap;
@@ -310,13 +311,27 @@ fn _find_median(numbers: &mut Vec<i32>) -> f64 {
 }
 
 fn _err_handling(){
-    let file = File::open("Cargo.toml");
+    let filename = "hello.txt";
+    let file = File::open(filename);
     let file = match file {
         Ok(file) => file,
-        Err(err) => {
-            eprintln!("Error opening file: {}", err);
-            // panic!("File not found");
-            return;
+        Err(err) => match err.kind(){
+            ErrorKind::NotFound => {
+                println!("{} does not exist", filename );
+                match File::create(filename) {
+                    Ok(fc) => {
+                        println!("File created successfully: {:?}", fc);
+                    }
+                    Err(err) => {
+                        println!("Error creating file: {}", err);
+                    }
+                }
+                return;
+            }
+        _ => {        
+                // eprintln!("Error opening file: {}", err);
+                panic!("{} not found: {:?}", filename, err);
+            }
         }
     };
     println!("File opened successfully: {:?}", file);
