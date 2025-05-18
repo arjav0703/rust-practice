@@ -7,6 +7,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::{thread::sleep, time::Duration};
+mod garden;
 // #[derive(Debug)]
 // struct Usr {
 //     active: bool,
@@ -218,5 +219,5 @@ fn _some() {
 }
 
 fn main() {
-    _some();
+    garden::garden::main();
 }
