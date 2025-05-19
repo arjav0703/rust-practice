@@ -1,3 +1,5 @@
+// Traits define what behavior a type must implement.
+
 pub trait Formatter {
     fn format(&self) -> String;
 }
