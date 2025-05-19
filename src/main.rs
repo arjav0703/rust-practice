@@ -1,3 +1,4 @@
+use news::{ Formatter, NewsArticle};
 // ALERT: This is not a Project
 // This File containes my journey of learing Rust as a Typescript and Python developer.
 // Things I like about Rust:
@@ -11,6 +12,7 @@ use std::{i32, io};
 use std::{thread::sleep, time::Duration};
 use std::collections::HashMap;
 use std::fs::File;
+mod news;
 // mod garden;
 // #[derive(Debug)]
 // struct Usr {
@@ -338,19 +340,24 @@ fn _err_handling(){
     println!("File opened successfully: {:?}", file);
 }
 
-fn _largest<T>(list: &[T]) -> &T{ // T is a generic type
-    let mut res = &list[0];
+// fn _largest<T>(list: &[T]) -> &T{ // T is a generic type
+    // let mut res = &list[0];
 
-    for item in list {
-        if item > res {
-            res = item;
-        }
-    }
-    res
-}
+    // for item in list {
+        // if item > res {
+            // res = item;
+        // }
+    // }
+    // res
+// }
+
 
 fn main() {
-    let list = vec![1, 2, 3, 4, 5, 6];
-    let largest_value = _largest(&list);
-    println!("The largest value is {}", largest_value);
+    let a = NewsArticle{
+        title: String::from("Rust is awesome"),
+        content: String::from("Rust is a systems programming language that is blazingly fast and memory-efficient due to it's ownership model."),
+        author: String::from("Arjav Jain"),
+    };
+    println!("{}", a.format());
+
 }
