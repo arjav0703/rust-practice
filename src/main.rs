@@ -337,6 +337,20 @@ fn _err_handling(){
     };
     println!("File opened successfully: {:?}", file);
 }
+
+fn _largest<T>(list: &[T]) -> &T{ // T is a generic type
+    let mut res = &list[0];
+
+    for item in list {
+        if item > res {
+            res = item;
+        }
+    }
+    res
+}
+
 fn main() {
-    _err_handling();
+    let list = vec![1, 2, 3, 4, 5, 6];
+    let largest_value = _largest(&list);
+    println!("The largest value is {}", largest_value);
 }
